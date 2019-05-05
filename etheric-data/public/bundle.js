@@ -723,7 +723,7 @@ var app = (function () {
 
 				if (default_slot) default_slot.c();
 
-				button.className = "svelte-13ua2ne";
+				button.className = "svelte-1lhcpl0";
 				add_location(button, file$3, 0, 0, 0);
 				dispose = listen(button, "click", ctx.click_handler);
 			},
