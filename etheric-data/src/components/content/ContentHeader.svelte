@@ -7,11 +7,11 @@
 <style>
 	.container {
 		display: flex;
-		width: 100%;
+		width: 576px;
 		font-size: 12px;
-		padding-left: 8px;
-		padding-right: 8px;
-		padding-bottom: 2px;
+		padding-left: 12px;
+		padding-right: 12px;
+		padding-bottom: 8px;
 	}
 
 	.language-header {

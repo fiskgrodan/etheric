@@ -1,16 +1,19 @@
 <Header id="ingredients" headerText="Ingredienser" />
 <Content>
-	<ContentRow 
-		ingredient={{id: 1001, swedish: "Ananas", english: "Pineapple"}}
-		edit={(id) => console.log('edit: ' + id)}
-		remove={(id) => console.log('remove: ' + id)}
-	/>
+	{#each $store.ingredients as ingredient (ingredient.id)}
+		<ContentRow 
+			ingredient={ingredient} 
+			edit={(id)=> {}}
+			remove={(id) => console.log( typeof store.removeIngredient(id) )}
+		/>
+	{/each}
 </Content>
 
 <script>
 	import Header from "../../components/main/Header.svelte";
 	import Content from "../../components/content/Content.svelte";
 	import ContentRow from "../../components/content/ContentRow.svelte";
+	import { store } from "../../stores/store.js";
 </script>
 
 <style>
