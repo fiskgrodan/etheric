@@ -30,7 +30,7 @@
 		height: 100%;
 		margin-right: 32px;
 		color: #ffffff;
-		transition: color 150ms ease-out 0ms;
+		transition: color 150ms ease-in-out 0ms;
 		user-select: none;
 		text-decoration: none;
 	}

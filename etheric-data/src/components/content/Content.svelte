@@ -14,9 +14,9 @@
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;
-		padding-top: 16px;
-		padding-bottom: 16px;
-		background-color: #dddddd;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		background-color: #eeeeee;
 	}
 
 	.inner {

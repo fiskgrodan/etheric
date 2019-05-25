@@ -7,19 +7,20 @@
 <style>
 	.container {
 		display: flex;
-		width: 100%
+		width: 100%;
+		font-size: 12px;
+		padding-left: 8px;
+		padding-right: 8px;
+		padding-bottom: 2px;
 	}
 
 	.language-header {
-		width: 250px;
-		margin-right: 32px;
+		width: 260px;
 		user-select: none;
+		transition: color 150ms ease-in-out 0ms;
 	}
 	.language-header:hover {
 		cursor: pointer;
-	}
-
-	.delete-header {
-		width: 100px;
+		color: #999999;
 	}
 </style>
