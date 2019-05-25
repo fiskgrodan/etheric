@@ -36,7 +36,9 @@ const getNewId = items => items.reduce(
 );
 
 const createStore = () => {
-	const { subscribe, update } = writable(initialState);
+	const { subscribe, set, update } = writable(initialState);
+
+	const upload = data => set(data);
 
 	const addIngredient = ingredient => update(state => produce(state, draft => {
 		draft.ingredients.push(ingredient);
@@ -46,10 +48,16 @@ const createStore = () => {
 		draft.ingredients = state.ingredients.filter(ingredient => ingredientId !== ingredient.id)
 	}));
 
+	const removeCondition = conditionId => update(state => produce(state, draft => {
+		draft.conditions = state.conditions.filter(condition => conditionId !== condition.id)
+	}));
+
 	return {
 		subscribe,
+		upload,
 		addIngredient,
-		removeIngredient
+		removeIngredient,
+		removeCondition
 	};
 };
 

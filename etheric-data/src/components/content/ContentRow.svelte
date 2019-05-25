@@ -1,8 +1,8 @@
 <div transition:fade>
 	<div class="container" transition:slide>
-		<div class="text" on:click={()=> edit(ingredient.id)}>{ingredient.swedish}</div>
-		<div class="text" on:click={()=> edit(ingredient.id)}>{ingredient.english}</div>
-		<div class="remove" on:click={()=> remove(ingredient.id)}>
+		<div class="text" on:click={()=> edit(item.id)}>{item.swedish}</div>
+		<div class="text" on:click={()=> edit(item.id)}>{item.english}</div>
+		<div class="remove" on:click={()=> remove(item.id)}>
 			<Remove />
 		</div>
 	</div>
@@ -12,7 +12,7 @@
 	import { slide, fade } from 'svelte/transition';
 	import Remove from "../icons/Remove.svelte"
 
-	export let ingredient;
+	export let item;
 	export let edit;
 	export let remove;
 </script>

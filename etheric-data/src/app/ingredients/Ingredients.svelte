@@ -2,7 +2,7 @@
 <Content>
 	{#each $store.ingredients as ingredient (ingredient.id)}
 		<ContentRow 
-			ingredient={ingredient} 
+			item={ingredient} 
 			edit={(id)=> {}}
 			remove={(id) => store.removeIngredient(id)}
 		/>
