@@ -1,16 +1,15 @@
-<div class="container">
-	<h1>Ingredienser</h1>
-	<Button on:click={()=> console.log('click')}>
-		Lägg till en ny ingrediens
-	</Button>
-</div>
+<Header id="ingredients" headerText="Ingredienser" />
+<Content>
+	<div>hello</div>
+</Content>
 
 <script>
-	import Button from "../../components/buttons/Button.svelte";
+	import Header from "../../components/main/Header.svelte";
+	import Content from "../../components/main/Content.svelte";
 </script>
 
 <style>
 	.container {
-		padding: 40px 80px;
+		width: 600px;
 	}
 </style>

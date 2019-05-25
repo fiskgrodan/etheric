@@ -1,32 +1,41 @@
-<nav class="navbar">
-	<div class="logo">Etheric Data</div>
-	<Link label="Ingredienser" matchingHash="#/ingredients" />
-	<Link label="Tillstånd" matchingHash="#/conditions" />
-	<Link label="Kategorier" matchingHash="#/categories" />
+<nav>
+	<div class="link-container">
+		<a href="#ingredients">Ingredienser</a>
+		<a href="#conditions">Tillstånd</a>
+		<a href="#categories">Kategorier</a>
+	</div>
 </nav>
 
-<script>
-	import Link from "./Link.svelte";
-</script>
-
 <style>
-	.navbar {
+	nav {
 		display: flex;
-		align-items: center;
+		justify-content: center;
 		position: fixed;
 		top: 0;
-		height: 50px;
-		background-color: #1e87f0;
-		color: white;
+		height: 48px;
 		width: 100%;
-		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-		padding-left: 20px;
-		padding-right: 20px;
+		background-color: #1e87f0;
 	}
 
-	.logo {
-		padding-left: 20px;
-		padding-right: 20px;
-		opacity: 0.5;
+	.link-container {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		width: 600px;
+	}
+	
+	a {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		margin-right: 32px;
+		color: #ffffff;
+		transition: color 150ms ease-out 0ms;
+		user-select: none;
+		text-decoration: none;
+	}
+	a:hover {
+		cursor: pointer;
+		color: #cce5ff;
 	}
 </style>

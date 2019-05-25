@@ -1,32 +1,29 @@
-<NavBar />
+<Navbar />
 <main>
-	{#if $hash === "#/ingredients"}
-		<Ingredients />
-	{:else if $hash === "#/conditions"}
-		<h1>Tillstånd</h1>
-	{:else if $hash === "#/categories"}
-		<h1>Kategorier</h1>
-	{:else}
-		<h1>Home</h1>
-	{/if}
+	<Ingredients />
+	<Conditions />
+	<Categories />
+	<Footer />
 </main>
 
 <script>
-	import { hash } from "../stores/hash.js";
-	import { media } from "../stores/media.js";
-	import NavBar from "../components/navbar/NavBar.svelte";
+	import Navbar from "../components/navbar/Navbar.svelte";
 	import Ingredients from "./ingredients/Ingredients.svelte";
+	import Conditions from "./conditions/Conditions.svelte";
+	import Categories from "./categories/Categories.svelte";
+	import Footer from "../components/main/Footer.svelte";
 </script>
 
 <style>
-	:global(body) {
-		font-family: 'Source Sans Pro', sans-serif;
-		margin: 0;
-		padding: 0;
-		color: #666;
+	:global(html) {
+		font-family: ProximaNova, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+		color: #666666;
+		scroll-behavior: smooth;
 	}
 
-	main {
-		padding-top: 50px;
+	:global(body) {
+		margin: 0;
+		padding: 0;
+		overflow-y: scroll;
 	}
 </style>
