@@ -4,7 +4,7 @@
 		<ContentRow 
 			ingredient={ingredient} 
 			edit={(id)=> {}}
-			remove={(id) => console.log( typeof store.removeIngredient(id) )}
+			remove={(id) => store.removeIngredient(id)}
 		/>
 	{/each}
 </Content>
