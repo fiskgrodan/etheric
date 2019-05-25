@@ -1,5 +1,6 @@
 .DS_Store
 node_modules
-**/bundle.js
-**/bundle.css
-**/package-lock.json
+bundle.js*
+bundle.css*
+package-lock.json*
+yarn.lock*
