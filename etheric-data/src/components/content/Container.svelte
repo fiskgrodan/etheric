@@ -1,5 +1,5 @@
 <div transition:fade>
-	<div class="container" class:hoverable={!noHover}>
+	<div class="container" class:hoverable={!noHover} transition:slide>
 		<slot />
 	</div>
 </div>
