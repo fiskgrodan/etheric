@@ -35,4 +35,8 @@
 		cursor: pointer;
 		background-color: var(--primary-dark-color);
 	}
+
+	div.enabled label {
+		cursor: pointer;
+	}
 </style>
