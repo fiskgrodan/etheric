@@ -1,17 +1,19 @@
 <div class="wrapper">
-	<Container noHover>
-		<div class="row">
-			<div class="input-wrapper">
-				<Input bind:value={swedish} placeholder="Svenska" block />
+	<form on:submit|preventDefault={addIngredient}>
+		<Container noHover>
+			<div class="row">
+				<div class="input-wrapper">
+					<Input bind:value={swedish} placeholder="Svenska" block />
+				</div>
+				<div class="input-wrapper">
+					<Input bind:value={english} placeholder="Engelska" block />
+				</div>
+				<div class="button-wrapper">
+					<CreateIngredientButton enabled={enabled} on:click={addIngredient} />
+				</div>
 			</div>
-			<div class="input-wrapper">
-				<Input bind:value={english} placeholder="Engelska" block />
-			</div>
-			<div class="button-wrapper">
-				<CreateIngredientButton enabled={enabled} on:click={()=> addIngredient()}/>
-			</div>
-		</div>
-	</Container>
+		</Container>
+	</form>
 </div>
 
 <script>

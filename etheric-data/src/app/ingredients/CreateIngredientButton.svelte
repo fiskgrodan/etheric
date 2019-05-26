@@ -1,5 +1,8 @@
 <div class:enabled={enabled} on:click>
-	<Add />
+	<label>
+		<Add />
+		<input type="submit" style="display: none;">
+	</label>
 </div>
 
 <script>
@@ -27,6 +30,7 @@
 		background-color: var(--primary-color);
 		opacity: 1;
 	}
+
 	div.enabled:hover {
 		cursor: pointer;
 		background-color: var(--primary-dark-color);
