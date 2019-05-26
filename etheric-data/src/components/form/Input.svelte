@@ -1,11 +1,20 @@
+<svelte:window on:keydown={handleKeyDown} />
+
 <div>
-	<input bind:value type="text" placeholder={placeholder} class:block={block}>
+	<input bind:this={input} bind:value type="text" placeholder={placeholder} class:block={block}>
 </div>
 
 <script>
 	export let block = false;
 	export let placeholder;
 	export let value;
+	let input;
+
+	const handleKeyDown = event => {
+		if (event.key === "Enter" || event.key === "Escape") {
+			setTimeout(() => input.blur(), 0);
+		}
+	};
 </script>
 
 <style>
@@ -14,7 +23,7 @@
 	}
 
 	input {
-		font-size: 16px;
+		font-size: 14px;
 		outline: 0;
 		border-width: 0 0 2px;
 		border-color: #eeeeee;
