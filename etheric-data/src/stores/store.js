@@ -40,8 +40,12 @@ const createStore = () => {
 
 	const upload = data => set(data);
 
-	const addIngredient = ingredient => update(state => produce(state, draft => {
-		draft.ingredients.push(ingredient);
+	const addIngredient = (swedish, english) => update(state => produce(state, draft => {
+		draft.ingredients.push({
+			id: getNewId(state.ingredients),
+			swedish,
+			english
+		});
 	}));
 
 	const removeIngredient = ingredientId => update(state => produce(state, draft => {

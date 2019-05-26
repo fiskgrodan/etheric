@@ -23,7 +23,7 @@
 		top: 0;
 		height: 48px;
 		width: 100%;
-		background-color: #1e87f0;
+		background-color: var(--primary-color);
 		z-index: 100;
 	}
 

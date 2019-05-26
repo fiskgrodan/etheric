@@ -1,19 +1,14 @@
 <Header id="ingredients" headerText="Ingredienser" />
 <Content>
-	{#each $store.ingredients as ingredient (ingredient.id)}
-		<ContentRow 
-			item={ingredient} 
-			edit={(id)=> {}}
-			remove={(id) => store.removeIngredient(id)}
-		/>
-	{/each}
+	<IngredientList />
+	<CreateIngredient />
 </Content>
 
 <script>
 	import Header from "../../components/main/Header.svelte";
 	import Content from "../../components/content/Content.svelte";
-	import ContentRow from "../../components/content/ContentRow.svelte";
-	import { store } from "../../stores/store.js";
+	import IngredientList from "./IngredientList.svelte";
+	import CreateIngredient from "./CreateIngredient.svelte";
 </script>
 
 <style>

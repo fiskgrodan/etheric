@@ -26,4 +26,9 @@
 		padding: 0;
 		overflow-y: scroll;
 	}
+
+	:global(:root) {
+		--primary-color: #1e87f0;
+		--primary-dark-color: #0e6dcd;
+	}
 </style>

@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="language-header">Svenska</div>
 	<div class="language-header">Engelska</div>
-	<div class="delete-header"/>
+	<div />
 </div>
 
 <style>
