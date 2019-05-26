@@ -17,8 +17,8 @@
 		justify-content: center;
 		align-items: center;
 		border-radius: 4px;
-		height: 24px;
-		width: 24px;
+		height: 22px;
+		width: 22px;
 		line-height: 1;
 		color: #ffffff;
 		background-color: #999999;
