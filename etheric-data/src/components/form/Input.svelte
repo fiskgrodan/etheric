@@ -27,7 +27,7 @@
 	}
 
 	input::placeholder {
-		color: #999999;
+		color: #dddddd;
 	}
 
 	input.block {

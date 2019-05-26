@@ -23,7 +23,7 @@
 		color: #ffffff;
 		background-color: #999999;
 		transition: background-color 150ms ease-in-out 0ms, opacity 250ms ease-in-out 0ms;
-		opacity: 0.5;
+		opacity: 0.333;
 	}
 
 	div.enabled {
