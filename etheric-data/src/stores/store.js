@@ -1,6 +1,8 @@
 import { writable } from 'svelte/store';
 import { produce } from "immer";
 
+const localStorageState = localStorage.getItem("store");
+
 const initialState = {
 	ingredients: [],
 	conditions: [],
@@ -13,13 +15,11 @@ const getNewId = items => items.reduce(
 );
 
 const createStore = () => {
-	// Init
-	const { subscribe, set, update } = writable(initialState);
+	const { subscribe, set, update } = writable(localStorageState ? JSON.parse(localStorageState) : initialState);
 
-	// Upload
 	const upload = data => set(data);
 
-	// Add
+	// Adding
 	const addItem = (swedish, english, type) => update(state => produce(state, draft => {
 		draft[type].push({
 			id: getNewId(state[type]),
@@ -34,7 +34,7 @@ const createStore = () => {
 
 	const addCategory = (swedish, english) => addItem(swedish, english, "categories");
 
-	// Remove
+	// Removing
 	const removeIngredient = ingredientId => update(state => produce(state, draft => {
 		draft.ingredients = state.ingredients.filter(ingredient => ingredientId !== ingredient.id)
 	}));
@@ -47,7 +47,6 @@ const createStore = () => {
 		draft.categories = state.categories.filter(category => categoryId !== category.id)
 	}));
 
-	// Return
 	return {
 		subscribe,
 		upload,
@@ -61,3 +60,5 @@ const createStore = () => {
 };
 
 export const store = createStore();
+
+store.subscribe(state => localStorage.setItem("store", JSON.stringify(state)));
