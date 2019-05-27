@@ -1,5 +1,5 @@
 <div class="wrapper">
-	<form on:submit|preventDefault={addIngredient}>
+	<form on:submit|preventDefault={onSubmit}>
 		<Container noHover>
 			<div class="row">
 				<div class="input-wrapper">
@@ -9,7 +9,7 @@
 					<Input bind:value={english} placeholder="Engelska" block />
 				</div>
 				<div class="button-wrapper">
-					<CreateIngredientButton enabled={enabled} on:click={addIngredient} />
+					<CreateButton enabled={enabled} on:click={onSubmit} />
 				</div>
 			</div>
 		</Container>
@@ -17,22 +17,23 @@
 </div>
 
 <script>
-	import Container from "../../components/content/Container.svelte";
-	import ContentHeader from "../../components/content/ContentHeader.svelte";
-	import Input from "../../components/form/Input.svelte";
-	import CreateIngredientButton from "./CreateIngredientButton.svelte";
-	import { store } from "../../stores/store.js";
+	import Container from "../Container.svelte";
+	import Input from "../../form/Input.svelte";
+	import CreateButton from "./CreateButton.svelte";
+	import { store } from "../../../stores/store.js";
+
+	export let add;
 
 	let swedish = "";
 	let english = "";
 
 	$: enabled = swedish !== "" && english !== "";
 
-	const addIngredient = () => {
+	const onSubmit = () => {
 		if (!enabled) {
 			return;
 		}
-		store.addIngredient(swedish, english);
+		add(swedish, english);
 		swedish = "";
 		english = "";
 	}

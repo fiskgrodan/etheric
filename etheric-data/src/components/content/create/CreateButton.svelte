@@ -6,7 +6,7 @@
 </div>
 
 <script>
-	import Add from "../../components/icons/Add.svelte"
+	import Add from "../../icons/Add.svelte"
 
 	export let enabled = false;
 </script>

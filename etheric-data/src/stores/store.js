@@ -2,32 +2,9 @@ import { writable } from 'svelte/store';
 import { produce } from "immer";
 
 const initialState = {
-	ingredients: [
-		{ id: 1001, swedish: "Ananas", english: "Pineapple" },
-		{ id: 1002, swedish: "Jordgubbe", english: "Strawberry" },
-		{ id: 1003, swedish: "Morot", english: "Carrot" },
-		{ id: 1004, swedish: "Svamp", english: "Mushroom" },
-		{ id: 1005, swedish: "Apelsin", english: "Orange" },
-		{ id: 1006, swedish: "Kyckling", english: "Chicken" },
-	],
-	conditions: [
-		{
-			id: 1001,
-			swedish: "Huvudvärd",
-			english: "Headache",
-			top: [1001, 1002],
-			middle: [1003, 1004],
-			top: [1005, 1006]
-		}
-	],
-	categories: [
-		{
-			id: 1001,
-			swedish: "Huvud",
-			english: "Head",
-			conditions: [1001]
-		}
-	]
+	ingredients: [],
+	conditions: [],
+	categories: []
 };
 
 const getNewId = items => items.reduce(
@@ -36,18 +13,28 @@ const getNewId = items => items.reduce(
 );
 
 const createStore = () => {
+	// Init
 	const { subscribe, set, update } = writable(initialState);
 
+	// Upload
 	const upload = data => set(data);
 
-	const addIngredient = (swedish, english) => update(state => produce(state, draft => {
-		draft.ingredients.push({
-			id: getNewId(state.ingredients),
+	// Add
+	const addItem = (swedish, english, type) => update(state => produce(state, draft => {
+		draft[type].push({
+			id: getNewId(state[type]),
 			swedish,
 			english
 		});
 	}));
 
+	const addIngredient = (swedish, english) => addItem(swedish, english, "ingredients");
+
+	const addCondition = (swedish, english) => addItem(swedish, english, "conditions");
+
+	const addCategory = (swedish, english) => addItem(swedish, english, "categories");
+
+	// Remove
 	const removeIngredient = ingredientId => update(state => produce(state, draft => {
 		draft.ingredients = state.ingredients.filter(ingredient => ingredientId !== ingredient.id)
 	}));
@@ -56,12 +43,20 @@ const createStore = () => {
 		draft.conditions = state.conditions.filter(condition => conditionId !== condition.id)
 	}));
 
+	const removeCategory = categoryId => update(state => produce(state, draft => {
+		draft.categories = state.categories.filter(category => categoryId !== category.id)
+	}));
+
+	// Return
 	return {
 		subscribe,
 		upload,
 		addIngredient,
 		removeIngredient,
-		removeCondition
+		addCondition,
+		removeCondition,
+		addCategory,
+		removeCategory
 	};
 };
 
