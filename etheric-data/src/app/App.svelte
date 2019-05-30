@@ -30,5 +30,7 @@
 	:global(:root) {
 		--primary-color: #1e87f0;
 		--primary-dark-color: #0e6dcd;
+		--secondary-color: #f0506e;
+		--secondary-dark-color: #ec2147;
 	}
 </style>
