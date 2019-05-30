@@ -1,13 +1,8 @@
 <div class="outer">
 	<div class="inner">
-		<ContentHeader />
 		<slot />
 	</div>
 </div>
-
-<script>
-	import ContentHeader from "./ContentHeader.svelte";
-</script>
 
 <style>
 	.outer {
