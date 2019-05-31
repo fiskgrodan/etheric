@@ -21,14 +21,12 @@
 		width: 22px;
 		line-height: 1;
 		color: #ffffff;
-		background-color: #999999;
-		transition: background-color 150ms ease-in-out 0ms, opacity 250ms ease-in-out 0ms;
-		opacity: 0.333;
+		background-color: #dddddd;
+		transition: background-color 150ms ease-in-out 0ms;
 	}
 
 	div.enabled {
 		background-color: var(--primary-color);
-		opacity: 1;
 	}
 
 	div.enabled:hover {

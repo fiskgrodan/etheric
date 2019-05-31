@@ -14,7 +14,7 @@
 	itemId={removeIngredientId} 
 	open={removeOpen} 
 	close={() => removeIngredientId = null} 
-	remove={(id) => {
+	remove={id => {
 		store.removeIngredient(id);
 		removeIngredientId = null;
 	}}
@@ -39,9 +39,3 @@
 	$: editOpen = editIngredient !== null; // TODO: use this
 	$: removeOpen = removeIngredientId !== null;
 </script>
-
-<style>
-	.container {
-		width: 600px;
-	}
-</style>
