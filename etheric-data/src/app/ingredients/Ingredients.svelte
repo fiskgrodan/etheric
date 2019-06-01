@@ -18,10 +18,20 @@
 		store.removeIngredient(id);
 		removeIngredientId = null;
 	}}
-	title="Ta bort ingrediensen"
+	title="Ta bort ingrediens"
 >
 	<div>Vill du ta bort den här ingrediensen?</div>
 </RemoveModal>
+<UpdateModal 
+	item={editIngredient} 
+	open={editOpen} 
+	close={() => editIngredient = null} 
+	update={item => {
+		store.updateIngredient(item);
+		editIngredient = null;
+	}}
+	title="Ändra ingrediens"
+/>
 
 <script>
 	import Header from "../../components/main/Header.svelte";
@@ -30,12 +40,13 @@
 	import ContentRow from "../../components/content/ContentRow.svelte";
 	import CreateRow from "../../components/content/create/CreateRow.svelte";
 	import RemoveModal from "../../components/modal/RemoveModal.svelte";
+	import UpdateModal from "../../components/modal/UpdateModal.svelte";
 	import { store } from "../../stores/store.js";
 	import { sorted } from "../../stores/sorted.js";
 
-	let editIngredient = null; // TODO: use this
+	let editIngredient = null;
 	let removeIngredientId = null;
 
-	$: editOpen = editIngredient !== null; // TODO: use this
+	$: editOpen = editIngredient !== null;
 	$: removeOpen = removeIngredientId !== null;
 </script>

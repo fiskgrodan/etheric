@@ -1,7 +1,7 @@
 <Container>
-		<div on:click={()=> edit(item.id)}>{item.swedish}</div>
-		<div on:click={()=> edit(item.id)}>{item.english}</div>
-		<RemoveButton on:click={()=> remove(item.id)} />
+	<div on:click={() => edit(item)}>{item.swedish}</div>
+	<div on:click={() => edit(item)}>{item.english}</div>
+	<RemoveButton on:click={() => remove(item.id)} />
 </Container>
 
 <script>

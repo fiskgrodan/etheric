@@ -19,7 +19,7 @@ const createStore = () => {
 
 	const upload = data => set(data);
 
-	// Adding
+	// Create
 	const addItem = (swedish, english, type) => update(state => produce(state, draft => {
 		draft[type].push({
 			id: getNewId(state[type]),
@@ -28,13 +28,30 @@ const createStore = () => {
 		});
 	}));
 
+
 	const addIngredient = (swedish, english) => addItem(swedish, english, "ingredients");
 
 	const addCondition = (swedish, english) => addItem(swedish, english, "conditions");
 
 	const addCategory = (swedish, english) => addItem(swedish, english, "categories");
 
-	// Removing
+	// Update
+	const updateItem = (newItem, type) => update(state => produce(state, draft => {
+		draft[type] = state[type].map(item => {
+			if (item.id === newItem.id) {
+				return newItem;
+			}
+			return item;
+		});
+	}));
+
+	const updateIngredient = newIngredient => updateItem(newIngredient, "ingredients");
+
+	const updateCondition = newCondition => updateItem(newCondition, "condition");
+
+	const updateCategory = newCategory => updateItem(newCategory, "categories");
+
+	// Delete
 	const removeIngredient = ingredientId => update(state => produce(state, draft => {
 		draft.ingredients = state.ingredients.filter(ingredient => ingredientId !== ingredient.id)
 	}));
@@ -51,10 +68,13 @@ const createStore = () => {
 		subscribe,
 		upload,
 		addIngredient,
-		removeIngredient,
 		addCondition,
-		removeCondition,
 		addCategory,
+		updateIngredient,
+		updateCondition,
+		updateCategory,
+		removeIngredient,
+		removeCondition,
 		removeCategory
 	};
 };

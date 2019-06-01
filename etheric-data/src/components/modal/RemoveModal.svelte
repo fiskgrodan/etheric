@@ -1,4 +1,4 @@
-<Modal open={open} close={close} title={title} remove={remove} size="small">
+<Modal open={open} close={close} title={title} size="small">
 	<div slot="body">
 		<slot />
 	</div>
