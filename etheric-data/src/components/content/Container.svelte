@@ -1,4 +1,4 @@
-<div transition:fade>
+<div on:click={() => edit()} transition:fade>
 	<div class="container" class:hoverable={!noHover} transition:slide>
 		<slot />
 	</div>
@@ -8,6 +8,7 @@
 	import { slide, fade } from 'svelte/transition';
 
 	export let noHover = false;
+	export let edit = () => {};
 </script>
 
 <style>

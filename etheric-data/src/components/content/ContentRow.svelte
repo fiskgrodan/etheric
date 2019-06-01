@@ -1,6 +1,6 @@
-<Container>
-	<div on:click={() => edit(item)}>{item.swedish}</div>
-	<div on:click={() => edit(item)}>{item.english}</div>
+<Container edit={() => edit(item)}>
+	<div>{item.swedish}</div>
+	<div>{item.english}</div>
 	<RemoveButton on:click={() => remove(item.id)} />
 </Container>
 

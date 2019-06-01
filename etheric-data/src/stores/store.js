@@ -47,7 +47,7 @@ const createStore = () => {
 
 	const updateIngredient = newIngredient => updateItem(newIngredient, "ingredients");
 
-	const updateCondition = newCondition => updateItem(newCondition, "condition");
+	const updateCondition = newCondition => updateItem(newCondition, "conditions");
 
 	const updateCategory = newCategory => updateItem(newCategory, "categories");
 

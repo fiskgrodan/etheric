@@ -24,7 +24,7 @@
 		height: 48px;
 		width: 100%;
 		background-color: var(--primary-color);
-		z-index: 100;
+		z-index: 0;
 	}
 
 	.link-container {

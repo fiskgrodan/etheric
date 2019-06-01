@@ -1,4 +1,4 @@
-<div on:click>
+<div on:click|stopPropagation>
 	<Remove />
 </div>
 

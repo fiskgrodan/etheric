@@ -4,7 +4,7 @@
 	{#each $sorted.conditions as condition (condition.id)}
 		<ContentRow 
 			item={condition} 
-			edit={()=> {}}
+			edit={condition => editCondition = condition}
 			remove={id => removeConditionId = id}
 		/>
 	{/each}
@@ -22,6 +22,7 @@
 >
 	<div>Vill du ta bort det här tillståndet?</div>
 </RemoveModal>
+<UpdateCondition editCondition={editCondition} close={() => editCondition = null} />
 
 <script>
 	import Header from "../../components/main/Header.svelte";
@@ -30,9 +31,12 @@
 	import ContentRow from "../../components/content/ContentRow.svelte";
 	import CreateRow from "../../components/content/create/CreateRow.svelte";
 	import RemoveModal from "../../components/modal/RemoveModal.svelte";
+	import UpdateModal from "../../components/modal/UpdateModal.svelte";
+	import UpdateCondition from "./UpdateCondition.svelte";
 	import { store } from "../../stores/store.js";
 	import { sorted } from "../../stores/sorted.js";
 
+	let editCondition = null;
 	let removeConditionId = null;
 
 	$: removeOpen = removeConditionId !== null;
