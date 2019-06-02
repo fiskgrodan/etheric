@@ -4,7 +4,7 @@
 	{#each $sorted.conditions as condition (condition.id)}
 		<ContentRow 
 			item={condition} 
-			edit={condition => editCondition = condition}
+			edit={condition => editCondition = JSON.parse(JSON.stringify(condition))}
 			remove={id => removeConditionId = id}
 		/>
 	{/each}

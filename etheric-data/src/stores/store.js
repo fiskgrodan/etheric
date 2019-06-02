@@ -20,20 +20,34 @@ const createStore = () => {
 	const upload = data => set(data);
 
 	// Create
-	const addItem = (swedish, english, type) => update(state => produce(state, draft => {
-		draft[type].push({
-			id: getNewId(state[type]),
+	const addIngredient = (swedish, english) => update(state => produce(state, draft => {
+		draft.ingredients.push({
+			id: getNewId(state.ingredients),
 			swedish,
 			english
 		});
 	}));
 
+	const addCondition = (swedish, english) => update(state => produce(state, draft => {
+		draft.conditions.push({
+			id: getNewId(state.conditions),
+			swedish,
+			english,
+			base: [],
+			middle: [],
+			top: []
+		});
+	}));
 
-	const addIngredient = (swedish, english) => addItem(swedish, english, "ingredients");
+	const addCategory = (swedish, english) => update(state => produce(state, draft => {
+		draft.categories.push({
+			id: getNewId(state.categories),
+			swedish,
+			english,
+			conditions: []
+		});
+	}));
 
-	const addCondition = (swedish, english) => addItem(swedish, english, "conditions");
-
-	const addCategory = (swedish, english) => addItem(swedish, english, "categories");
 
 	// Update
 	const updateItem = (newItem, type) => update(state => produce(state, draft => {
