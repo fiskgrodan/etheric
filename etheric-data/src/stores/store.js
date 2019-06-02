@@ -67,15 +67,25 @@ const createStore = () => {
 
 	// Delete
 	const removeIngredient = ingredientId => update(state => produce(state, draft => {
-		draft.ingredients = state.ingredients.filter(ingredient => ingredientId !== ingredient.id)
+		draft.ingredients = state.ingredients.filter(ingredient => ingredientId !== ingredient.id);
+
+		draft.conditions = state.conditions.map(condition => produce(condition, conditionDraft => {
+			conditionDraft.base = condition.base.filter(base => base !== ingredientId);
+			conditionDraft.middle = condition.middle.filter(middle => middle !== ingredientId);
+			conditionDraft.top = condition.top.filter(top => top !== ingredientId);
+		}));
 	}));
 
 	const removeCondition = conditionId => update(state => produce(state, draft => {
-		draft.conditions = state.conditions.filter(condition => conditionId !== condition.id)
+		draft.conditions = state.conditions.filter(condition => conditionId !== condition.id);
+
+		draft.categories = state.categories.map(category => produce(category, categoryDraft => {
+			categoryDraft.conditions = category.conditions.filter(condition => condition !== conditionId);
+		}));
 	}));
 
 	const removeCategory = categoryId => update(state => produce(state, draft => {
-		draft.categories = state.categories.filter(category => categoryId !== category.id)
+		draft.categories = state.categories.filter(category => categoryId !== category.id);
 	}));
 
 	return {
