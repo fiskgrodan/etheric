@@ -4,7 +4,7 @@
 	{#each $sorted.conditions as condition (condition.id)}
 		<ContentRow 
 			item={condition} 
-			edit={condition => editCondition = JSON.parse(JSON.stringify(condition))}
+			edit={condition => editCondition = clone(condition)}
 			remove={id => removeConditionId = id}
 		/>
 	{/each}
@@ -35,6 +35,7 @@
 	import UpdateCondition from "./UpdateCondition.svelte";
 	import { store } from "../../stores/store.js";
 	import { sorted } from "../../stores/sorted.js";
+	import clone from 'just-clone';
 
 	let editCondition = null;
 	let removeConditionId = null;

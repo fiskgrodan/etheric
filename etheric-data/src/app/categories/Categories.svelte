@@ -4,7 +4,7 @@
 	{#each $sorted.categories as category (category.id)}
 		<ContentRow 
 			item={category} 
-			edit={()=> {}}
+			edit={item => editCategory.set(item)}
 			remove={id => removeCategoryId = id}
 		/>
 	{/each}
@@ -22,6 +22,7 @@
 >
 	<div>Vill du ta bort den här kategorin?</div>
 </RemoveModal>
+<UpdateCategory />
 
 <script>
 	import Header from "../../components/main/Header.svelte";
@@ -30,8 +31,10 @@
 	import ContentRow from "../../components/content/ContentRow.svelte";
 	import CreateRow from "../../components/content/create/CreateRow.svelte";
 	import RemoveModal from "../../components/modal/RemoveModal.svelte";
+	import UpdateCategory from "./UpdateCategory.svelte";
 	import { store } from "../../stores/store.js";
 	import { sorted } from "../../stores/sorted.js";
+	import { editCategory } from "./editCategory.js";
 
 	let removeCategoryId = null;
 

@@ -13,10 +13,12 @@
 		</div>
 		<div class="row">
 			<div class="select-wrapper">
-				<Select options={filterNotSelected($store.ingredients, editCondition.base)} select={ingredientId=> addIngredient(ingredientId, "base")}/>
+				<Select options={filterNotSelected($store.ingredients, editCondition.base)} select={ingredientId=>
+					addIngredient(ingredientId, "base")}/>
 			</div>
 			<div class="select-wrapper">
-				<Select options={filterNotSelected($store.ingredients, editCondition.middle)} select={ingredientId=> addIngredient(ingredientId, "middle")}/>
+				<Select options={filterNotSelected($store.ingredients, editCondition.middle)} select={ingredientId=>
+					addIngredient(ingredientId, "middle")}/>
 			</div>
 			<div class="select-wrapper">
 				<Select options={filterNotSelected($store.ingredients, editCondition.top)} select={ingredientId=>
@@ -25,10 +27,8 @@
 			</div>
 		</div>
 		<div class="row">
-			<ConditionIngredients 
-				editCondition={editCondition} 
-				remove={(id, type) => removeIngredient(id, type)}
-			/>
+			<ConditionIngredients editCondition={editCondition} remove={(id, type)=> removeIngredient(id, type)}
+				/>
 		</div>
 	</div>
 </UpdateModal>
